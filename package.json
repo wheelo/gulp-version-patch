@@ -1,0 +1,32 @@
+{
+  "name": "gulp-version-patch",
+  "version": "0.1.5",
+  "description": "a gulp plugin which patches the included files versions in html & css",
+  "main": "index.js",
+  "scripts": {
+    "start": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wheelo/gulp-version-patch.git"
+  },
+  "keywords": [
+    "gulp",
+    "gulp",
+    "plugin",
+    "md5",
+    "patch",
+    "version"
+  ],
+  "dependencies": {
+    "gulp": "^3.8.11",
+    "gulp-util": "^3.0.0",
+    "through2": "^0.6.1"
+  },
+  "author": "wheelo",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/wheelo/gulp-version-patch/issues"
+  },
+  "homepage": "https://github.com/wheelo/gulp-version-patch"
+}
