@@ -23,26 +23,25 @@ module.exports = function (options) {
         // 1:script   10:css    100: src   1000:css bg
         switch(options.patchMode) {
             case 1:
-                console.log(1);
                 ASSET_REG = {
                     "SCRIPT": /(<script[^>]+src=)['"]([^'"]+)["']/ig,
                     "STYLESHEET": /(<link[^>]+href=)['"]([^'"]+)["']/ig,
-                    //"IMAGE": /(<img[^>]+src=)['"]([^'"]+)["']/ig,
                     "BACKGROUND": /(url\()(?!data:|about:)([^)]*)/ig
                 };
                 break;
             case 2:
-                console.log(2);
                 ASSET_REG = {
                     "SCRIPT": /(<script[^>]+src=)['"]([^'"]+)["']/ig,
-                    "STYLESHEET": /(<link[^>]+href=)['"]([^'"]+)["']/ig,
-                    //"IMAGE": /(<img[^>]+src=)['"]([^'"]+)["']/ig,
-                    //"BACKGROUND": /(url\()(?!data:|about:)([^)]*)/ig
+                    "STYLESHEET": /(<link[^>]+href=)['"]([^'"]+)["']/ig
+                };
+                break;
+            case 3:
+                ASSET_REG = {
+                    "SCRIPT": /(<script[^>]+src=)['"]([^'"]+)["']/ig
                 };
                 break;
             case 0:
             default:
-                console.log(0);
                 ASSET_REG = {
                     "SCRIPT": /(<script[^>]+src=)['"]([^'"]+)["']/ig,
                     "STYLESHEET": /(<link[^>]+href=)['"]([^'"]+)["']/ig,

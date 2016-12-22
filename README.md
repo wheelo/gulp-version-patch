@@ -1,6 +1,6 @@
 ## gulp-version-patch
 
-a gulp plugin which patches the included files versions in html & css
+a gulp plugin which patches the version of js, css and img resources in html or css(less) file
 
 ## Installation
 
@@ -12,11 +12,11 @@ npm install gulp-version-patch
 
 ```js
 var gulp = require('gulp');
-var assetRev = require('gulp-version-patch');
+var versionPatch = require('gulp-version-patch');
 
 gulp.task('rev',function() {
     gulp.src("./test/test.html")
-        .pipe(assetRev())
+        .pipe(versionPatch())
         .pipe(gulp.dest('./'));
 });
 ```
@@ -24,32 +24,35 @@ gulp.task('rev',function() {
 ## Options
 
 ### patchMode: control the patch mode
-This package includes 4 version patch modes, either the following 4 types could be patched: script, stylesheet, image, background. use it with caution.
+This package includes 4 version patch modes, either the following 4 types could be patched: script, stylesheet, image, background. 
+0: patch all above four patched types in both html and css
+1: not include the image resource patched process
+2: only ipatch the script and css in html 
+3: only patch the script in html 
+
 #### default: 0
+use it with caution.
 
 
 ## Example
 
 ```js
 var gulp = require('gulp');
-var assetRev = require('./index.js');
-// pacthMode: 1, 2, 3, 4
-gulp.task('rev',['revCss'],function() {
+var versionPatch = require('gulp-version-patch');
+// will not patch the image resource
+gulp.task('patch',['patchCss'],function() {
     gulp.src("./test/test.html")
-        .pipe(assetRev({ patchMode: 1 }))
+        .pipe(versionPatch({ patchMode: 1 }))
         .pipe(gulp.dest('./dest'));
 });
 
-gulp.task('revCss',function () {
+gulp.task('patchCss',function () {
     return gulp.src('./test/styles/test.css')
-        .pipe(assetRev())
+        .pipe(versionPatch())
         .pipe(gulp.dest('./dest/styles/'))
 });
-gulp.task('default',['rev']);
+
+gulp.task('default',['patch']);
 ```
-
-
-
-
 
 
