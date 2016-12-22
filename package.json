@@ -1,6 +1,6 @@
 {
   "name": "gulp-version-patch",
-  "version": "0.3.3",
+  "version": "0.3.5",
   "description": "A gulp plugin which patches the version of included files within html and css file",
   "main": "index.js",
   "scripts": {

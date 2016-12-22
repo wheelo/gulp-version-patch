@@ -1,6 +1,6 @@
 ## gulp-version-patch
 
-A gulp plugin which patches the version of included resource files in html & css file
+A gulp plugin which patches the version of included resource files in html & css files
 
 ## Installation
 
@@ -30,9 +30,9 @@ the file generated will have the shape of `?v=abcd123` as suffix.
 This package includes 4 version patch modes, either the following 4 types could be patched: script, stylesheet, image, background. 
 
 * 0: patch all above four patched types in both html and css
-* 1: not include the image resource patched process
-* 2: only ipatch the script and css in html 
-* 3: only patch the script in html 
+* 1: not patch the image resource 
+* 2: only patch the script and css
+* 3: only patch the script
 
 #### default: 0
 use it with the param `{ patchMode: TYPE }`, the `TYPE` is either `0, 1, 2, 3, 4`
