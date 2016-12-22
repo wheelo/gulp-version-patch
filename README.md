@@ -1,6 +1,6 @@
 ## gulp-version-patch
 
-a gulp plugin which patches the version of js, css and img resources in html or css(less) file
+a gulp plugin which patches the version of js, css and img resources included in html or css(less) file
 
 ## Installation
 
@@ -25,14 +25,14 @@ gulp.task('rev',function() {
 
 ### patchMode: control the patch mode
 This package includes 4 version patch modes, either the following 4 types could be patched: script, stylesheet, image, background. 
-0: patch all above four patched types in both html and css
-1: not include the image resource patched process
-2: only ipatch the script and css in html 
-3: only patch the script in html 
+
+* 0: patch all above four patched types in both html and css
+* 1: not include the image resource patched process
+* 2: only ipatch the script and css in html 
+* 3: only patch the script in html 
 
 #### default: 0
-use it with caution.
-
+use it with the param { patchMode: TYPE }, the TYPE is either 0, 1, 2, 3, 4
 
 ## Example
 

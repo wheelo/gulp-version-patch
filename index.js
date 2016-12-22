@@ -20,7 +20,7 @@ module.exports = function (options) {
     return through.obj(function (file, enc, cb) {
         options = options || {};
         options.patchMode = options.patchMode || 0;
-        // 1:script   10:css    100: src   1000:css bg
+        // 0: default
         switch(options.patchMode) {
             case 1:
                 ASSET_REG = {

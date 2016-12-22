@@ -1,7 +1,7 @@
 {
   "name": "gulp-version-patch",
-  "version": "0.2.0",
-  "description": "a gulp plugin which patches the included files versions in html & css",
+  "version": "0.2.2",
+  "description": "a gulp plugin which patches the included files versions included in html & css",
   "main": "index.js",
   "scripts": {
     "start": "echo \"Error: no test specified\" && exit 1"
