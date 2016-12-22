@@ -35,7 +35,7 @@ This package includes 4 version patch modes, either the following 4 types could 
 * 3: only patch the script in html 
 
 #### default: 0
-use it with the param { patchMode: TYPE }, the `TYPE` is either `0, 1, 2, 3, 4`
+use it with the param `{ patchMode: TYPE }`, the `TYPE` is either `0, 1, 2, 3, 4`
 
 ## Example
 
