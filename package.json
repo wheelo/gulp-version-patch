@@ -1,6 +1,6 @@
 {
   "name": "gulp-version-patch",
-  "version": "0.2.2",
+  "version": "0.3.0",
   "description": "a gulp plugin which patches the included files versions included in html & css",
   "main": "index.js",
   "scripts": {
@@ -12,7 +12,7 @@
   },
   "keywords": [
     "gulp",
-    "gulp",
+    "update",
     "plugin",
     "md5",
     "patch",

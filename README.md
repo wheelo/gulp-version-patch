@@ -1,6 +1,6 @@
 ## gulp-version-patch
 
-a gulp plugin which patches the version of js, css and img resources included in html or css(less) file
+a gulp plugin which patches the included resource files version in html & css
 
 ## Installation
 
