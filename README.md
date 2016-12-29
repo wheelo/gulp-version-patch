@@ -14,7 +14,7 @@ npm install gulp-version-patch
 var gulp = require('gulp');
 var versionPatch = require('gulp-version-patch');
 
-gulp.task('rev',function() {
+gulp.task('patchVersion',function() {
     gulp.src("./test/test.html")
         .pipe(versionPatch())
         .pipe(gulp.dest('./'));
@@ -27,7 +27,8 @@ the file generated will have the shape of `?v=abcd123` as suffix.
 ## Options
 
 ### patchMode: control the patch mode
-This package includes 4 version patch modes, either the following 4 types could be patched: script, stylesheet, image, background. 
+When using this patch plugin you should specify the param `{ patchMode: TYPE }`, the `TYPE` is either `0, 1, 2, 3, 4`
+There are four patching mode avaibale while now. Either of the following 4 patching shapes could be the yielded result: script, stylesheet, image, background. 
 
 * 0: patch all above four patched types in both html and css
 * 1: not patch the image resource 
@@ -35,7 +36,6 @@ This package includes 4 version patch modes, either the following 4 types could 
 * 3: only patch the script
 
 #### default: 0
-use it with the param `{ patchMode: TYPE }`, the `TYPE` is either `0, 1, 2, 3, 4`
 
 ## Example
 
