@@ -14,11 +14,25 @@ npm install gulp-version-patch
 var gulp = require('gulp');
 var versionPatch = require('gulp-version-patch');
 
-gulp.task('patchVersion',function() {
-    gulp.src("./test/test.html")
-        .pipe(versionPatch())
-        .pipe(gulp.dest('./'));
+// will not patch the image resource, for base64 replacement & etc..
+gulp.task('imgs', function () {
+    return gulp.src('./test/imgs/*.*')
+        .pipe(gulp.dest('./test/dist/imgs'))
 });
+
+gulp.task('patchcss', function () {
+    return gulp.src('./test/*.css')
+        .pipe(versionPatch({versionMode: '%DT%'}))
+        .pipe(gulp.dest('./test/dist'))
+});
+
+gulp.task('patch', ['imgs', 'patchcss'], function () {
+    gulp.src("./test/*.html")
+        .pipe(versionPatch({patchMode: 1}))
+        .pipe(gulp.dest('./test/dist'));
+});
+
+gulp.task('default', ['patch']);
 ```
 #### Notice: the file generated will have the shape of `?v=abcd123` as suffix.
 
