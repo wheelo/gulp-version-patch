@@ -49,7 +49,7 @@ There are 4 patching modes avaibale right now. Either of the following 4 resourc
 
 **Version Modes**
 
-- `%DATE%:  date [**YYYYMMDD**]
+- `%DATE%`  date [**YYYYMMDD**]
 - `%DT%`  date + time [**YYYYMMDDHHIISS**]
 - `%TS%`  timestamp [**INT**10]
 - `%TSM%`  timestamp(millisecond) [**INT**13]
