@@ -7,21 +7,53 @@ var crypto = require('crypto');
 var gutil = require('gulp-util');
 var through = require('through2');
 
+var md5 = require('./lib/md5');
+var randomString = require('./lib/randomString');
+var leadZero = require('./lib/leadZero');
+
 var PLUGIN_NAME = 'gulp-version-patch';
 
+// var createHash = function (file, len) {
+//     return crypto.createHash('md5').update(file).digest('hex').substr(0, len);
+// };
 
-var createHash = function (file, len) {
-    return crypto.createHash('md5').update(file).digest('hex').substr(0, len);
-};
+function version(v) {
 
-var ASSET_REG = { };
+    if ( typeof v === 'undefined') {
+        return null;
+    }
 
-module.exports = function (options) {
-    return through.obj(function (file, enc, cb) {
-        options = options || {};
-        options.patchMode = options.patchMode || 0;
-        // 0: default
-        switch(options.patchMode) {
+    if (v.indexOf('%')) {
+        v = v.toUpperCase();
+    }
+
+    var DT = new Date();
+    switch(v) {
+        case '%DATE%':
+            v = DT.getFullYear() + leadZero(DT.getMonth() + 1, 2) + leadZero(DT.getDate(), 2);
+            break;
+        case '%DT%':
+            v = DT.getFullYear() + leadZero(DT.getMonth() + 1, 2) + leadZero(DT.getDate(), 2) + leadZero(DT.getHours(), 2) + leadZero(DT.getMinutes(), 2) + leadZero(DT.getSeconds(), 2);
+            break;
+        case '%TS%':
+            v = DT.getTime().toString();
+            break;
+        case '%MD5%':
+            v = md5(DT.getTime().toString());
+            break;
+        case '%MDS%':
+            v = md5(md5(DT.getTime().toString()) + randomString(8));
+            break;
+        default:
+            break;
+    }
+
+    return v;
+}
+
+function assetReg(p) {
+    var ASSET_REG = {};
+    switch(p) {
             case 1:
                 ASSET_REG = {
                     "SCRIPT": /(<script[^>]+src=)['"]([^'"]+)["']/ig,
@@ -50,7 +82,19 @@ module.exports = function (options) {
                 };
                 break;
         }
+        return ASSET_REG;
+}
 
+
+module.exports = function (options) {
+    return through.obj(function (file, enc, cb) {
+        options = options || {};
+        options.patchMode = options.patchMode || 0;
+        options.versionMode = options.versionMode || '%MD5%';
+
+        var versionNum = version(options.versionMode).substr(0, 8);
+        var ASSET_REG = assetReg(options.patchMode);
+        
         if (file.isNull()) {
             this.push(file);
             return cb();
@@ -96,12 +140,9 @@ module.exports = function (options) {
                     }
 
                     if (fs.existsSync(assetPath)) {
-
-                        var buf = fs.readFileSync(assetPath);
-
-                        var md5 = createHash(buf, options.hashLen || 7);
-
-                        src += "?v=" + md5;
+                        //var buf = fs.readFileSync(assetPath);
+                        //var md5 = createHash(buf, options.hashLen || 7);
+                        src += "?v=" + versionNum;
                     } else {
                         return str;
                     }

@@ -1,0 +1,1 @@
+console.log('hello, welcome to gulp-version-patch world');

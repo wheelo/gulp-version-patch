@@ -1,0 +1,10 @@
+body {
+	background: rgb(144, 104, 167);
+	margin: 100px auto;
+    text-align: center;
+}
+
+body h1 {
+	background: url("imgs/timg.jpeg?v=20161230") repeat;
+	color: pink;
+}
