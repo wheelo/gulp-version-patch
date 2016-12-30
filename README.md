@@ -62,22 +62,8 @@ There are 4 patching modes avaibale right now. Either of the following 4 resourc
 
 ##### default: %MD5%
 
-## Example
 
-```js
-gulp.task('patch', ['patchCss'], function () {
-    gulp.src("./test/*.html")
-        .pipe(versionPatch({ patchMode: 1 }))
-        .pipe(gulp.dest('./test/dist'));
-});
 
-gulp.task('patchCss', function () {
-    return gulp.src('./test/*.css')
-        .pipe(versionPatch({versionMode: '%MD5%'}))
-        .pipe(gulp.dest('./test/dist'))
-});
-
-gulp.task('default', ['patch']);
-```
+#### ^^Enjoy your `gulp-version-patch` journey 
 
 
