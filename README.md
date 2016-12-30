@@ -64,6 +64,3 @@ There are 4 patching modes avaibale right now. Either of the following 4 resourc
 
 
 
-#### ^^Enjoy your `gulp-version-patch` journey 
-
-
