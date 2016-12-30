@@ -92,7 +92,11 @@ module.exports = function (options) {
         options.patchMode = options.patchMode || 0;
         options.versionMode = options.versionMode || '%MD5%';
 
-        var versionNum = version(options.versionMode).substr(0, 8);
+        var versionNum = version(options.versionMode);
+        if(options.versionMode.indexOf('%MD5%') || options.versionMode.indexOf('%MDS%')) {
+            versionNum = versionNum.substr(0, 8);
+        }
+        
         var ASSET_REG = assetReg(options.patchMode);
         
         if (file.isNull()) {
