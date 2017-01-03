@@ -90,10 +90,10 @@ module.exports = function (options) {
     return through.obj(function (file, enc, cb) {
         options = options || {};
         options.patchMode = options.patchMode || 0;
-        options.versionMode = options.versionMode || '%MD5%';
+        options.versionType = options.versionType || '%MD5%';
 
-        var versionNum = version(options.versionMode);
-        if(options.versionMode.indexOf('%MD5%') || options.versionMode.indexOf('%MDS%')) {
+        var versionNum = version(options.versionType);
+        if(options.versionType.indexOf('%MD5%') || options.versionType.indexOf('%MDS%')) {
             versionNum = versionNum.substr(0, 8);
         }
         

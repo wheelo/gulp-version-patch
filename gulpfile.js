@@ -15,7 +15,7 @@ gulp.task('imgs', function () {
 
 gulp.task('patchcss', function () {
     return gulp.src('./test/*.css')
-        // default: {versionMode: '%MD5%', patchMode: 0}
+        // default: {versionType: '%MD5%', patchMode: 0}
         .pipe(versionPatch())
         .pipe(gulp.dest('./test/dist'))
 });
