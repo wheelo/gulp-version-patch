@@ -17,8 +17,8 @@ var versionPatch = require('gulp-version-patch');
 
 gulp.task('patchcss', function () {
     return gulp.src('./test/*.css')
-     	// default: {versionMode: '%MD5%', patchMode: 0}
-        .pipe(versionPatch({versionMode: '%DT%'}))
+     	// default: {versionType: '%MD5%', patchMode: 0}
+        .pipe(versionPatch({versionType: '%DT%'}))
         .pipe(gulp.dest('./test/dist'))
 });
 
