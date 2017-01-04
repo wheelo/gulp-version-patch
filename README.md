@@ -44,11 +44,11 @@ When using this patch plugin you might specify the param `{ patchMode: MODE }` t
 - `2`: only patch the script and css
 - `3`: only patch the script
 
-You can also omit this params for the mode of `0`
+You can while yet omit this params. It turns out that, the package will then automatically use the dafault MODE of `0`.
 
 **Version Types**
 
-When the 'gulp-version-patch' package comes to the version 0.5.0. We have another feature to specify the patching version. You might specify the param `{ versionType: TYPE }` to indicate the patched version type. Either of date, time, MD5 can be indicated. Moreover, you can specify your DIY type for patching (i.e. the last one as follows). The param `TYPE` can be chosen one of `0, 1, 2, 3, 4`.
+When the package comes to version 0.5.0, we have one exciting feature to specify the type of patched version. You might specify the param `{ versionType: TYPE }` to indicate the patched version type. Either the modes of date, time and MD5 can be specified. Moreover, you can specify your own DIY type for patching (i.e., the last one as below). The param `TYPE` can be chosen one of `0, 1, 2, 3, 4`:
 
 - `%DATE%`  date [**YYYYMMDD**]
 - `%DT%`  date + time [**YYYYMMDDHHIISS**]
@@ -58,7 +58,7 @@ When the 'gulp-version-patch' package comes to the version 0.5.0. We have anothe
 - `%MDS%`  MD5(MD5(timestamp) + salt) [**STRING**32]
 - `{STRING}`  In addition to the above keywords, considered custom
 
-When you omit the param versionType, the module will use the default type `%MD5%` to patch resources.
+When you omit the param `versionType`, the module will use the default type `%MD5%` to patch resources.
 
 
 
