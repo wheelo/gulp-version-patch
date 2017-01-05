@@ -48,7 +48,7 @@ You can while yet omit this params. It turns out that, the package will then aut
 
 **Version Types**
 
-When the package comes to version 0.5.0, we have one exciting feature to specify the type of patched version. You might specify the param `{ versionType: TYPE }` to indicate the patched version type. Either the modes of date, time and MD5 can be specified. Moreover, you can specify your own DIY type for patching (i.e., the last one as below). The param `TYPE` can be chosen one of `0, 1, 2, 3, 4`:
+When the package comes to version 0.5.0, we have one exciting feature to specify the type of patched version. You might specify the param `{ versionType: TYPE }` to indicate the patched version type. Either the modes of date, time and MD5 can be specified. Moreover, you can specify your own DIY type for patching (i.e., the last one as below). The param `TYPE` can be chosen one of the following:
 
 - `%DATE%`  date [**YYYYMMDD**]
 - `%DT%`  date + time [**YYYYMMDDHHIISS**]
